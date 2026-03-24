@@ -160,7 +160,7 @@ test('generate CRL after revoking a certificate', function () {
 
     $crl = $ca->crls->getBuilder()
         ->caCertificate($caCert)
-        ->signerKey($caKey)
+
         ->addRevocations($revocation)
         ->nextUpdate($nextUpdate)
         ->save();
@@ -196,7 +196,7 @@ test('CRL number increments with successive CRL generations', function () {
     // First CRL (empty, no revocations)
     $crl1 = $ca->crls->getBuilder()
         ->caCertificate($caCert)
-        ->signerKey($caKey)
+
         ->save();
 
     expect($crl1->crlNumber)->toBe(1);
@@ -204,7 +204,7 @@ test('CRL number increments with successive CRL generations', function () {
     // Second CRL
     $crl2 = $ca->crls->getBuilder()
         ->caCertificate($caCert)
-        ->signerKey($caKey)
+
         ->save();
 
     expect($crl2->crlNumber)->toBe(2);
