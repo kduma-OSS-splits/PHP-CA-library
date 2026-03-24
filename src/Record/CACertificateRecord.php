@@ -12,7 +12,7 @@ use KDuma\PhpCA\Record\Enum\SignatureAlgorithm;
 use KDuma\SimpleDAL\Typed\Contracts\Attribute\Field;
 use KDuma\SimpleDAL\Typed\Contracts\TypedRecord;
 
-class CertificateRecord extends TypedRecord
+class CACertificateRecord extends TypedRecord
 {
     #[Field]
     public int $version;
@@ -45,14 +45,8 @@ class CertificateRecord extends TypedRecord
     public string $keyId;
 
     #[Field]
-    public string $caCertificateId;
-
-    #[Field]
-    public int $sequence;
-
-    #[Field]
     public string $fingerprint;
 
     #[Field]
-    public ?string $templateId;
+    public bool $isSelfSigned;
 }
